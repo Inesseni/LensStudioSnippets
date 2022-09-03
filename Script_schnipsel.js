@@ -155,6 +155,7 @@ var randomFLOAT = Math.random() * (10 - 1) + 1;
 
 
 
+
 //Change the color of the default confetti particle system (or any other property)
 //@input vec3 myParticleColor_Start {"widget":"color"}
 //@input vec3 myParticleColor_End {"widget":"color"}
@@ -195,6 +196,8 @@ function changeSceneObject(){
 }
 
 
+
+
 //Calculate distance between two Vector3
 function CalcDistance(Vec1, Vec2){
     distX = Vec2.x - Vec1.x;
@@ -204,3 +207,15 @@ function CalcDistance(Vec1, Vec2){
     return distance;
 }
 var distance = CalcDistance(Point1, Point2);
+
+
+
+
+//Convert Quaternion(vec3) to EULER (to use in a setRotation())
+var rotationEuler = quat.fromEulerVec(myVec3);
+
+//Create Euler from Values :
+fromEulerAngles(Number_x, Number_y, Number_z );
+
+//Convert EULER to Quaternion(vec3):
+var rotationQuat = rotationEuler.toEulerAngles();
