@@ -140,6 +140,8 @@ myAudioComponent.setOnFinish(function()
     print("sound finished playing");
 });
 
+myAudioComponent.pause();   //pauses the audio
+myAudioComponent.resume();  //resumes audio if pauseds
 
 
 
@@ -152,6 +154,10 @@ var MyScneObject_Child = script.MySceneObj.getChild(0);
 //gets a random number between 1 and 10 - You can change the numbers
 var randomINT = Math.floor(Math.random() * 10) + 1;
 var randomFLOAT = Math.random() * (10 - 1) + 1;
+
+//random float between -3 and 3
+var rangeX = 3;
+var randomX = Math.random() * (rangeX - (-rangeX)) + (- rangeX);
 
 
 
