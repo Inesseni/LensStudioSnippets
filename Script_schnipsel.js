@@ -225,3 +225,20 @@ fromEulerAngles(Number_x, Number_y, Number_z );
 
 //Convert EULER to Quaternion(vec3):
 var rotationQuat = rotationEuler.toEulerAngles();
+
+
+//Convert hexValues to RGBA
+function hexToRgbA(hex){
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        //return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';  //better to vec4:
+        return new vec4((c>>16)&255, (c>>8)&255, c&255,1);      //1 = alpha value, might need to be assigned seperately (?)
+    }
+    throw new Error('Bad Hex');
+}
+hexToRgbA('#fbafff')
