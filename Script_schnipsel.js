@@ -1,5 +1,23 @@
 //My code snippet library for Lens Studio
 
+//Custom Script UI for the inspector:
+{
+https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/custom-script-ui#general-ui-controls
+
+//seperator:
+// @ui {"widget":"separator"}
+
+//Label:
+//@ui {"widget":"label", "label":"Color Controls"}
+
+// Empty label, adds empty space
+//@ui {"widget":"label"}
+
+//Group:
+//@ui {"widget":"group_start", "label":"My Group"}
+// inner content...
+//@ui {"widget":"group_end"}
+}
 
 //touch blocking disables all snapchat native touch/tap interactions like doube tap to switch camera, swipe to get to other Tab in the app itself
 global.touchSystem.touchBlocking = true;
@@ -89,6 +107,18 @@ function setMaterial(material) {
     script.meshVisual.addMaterial(material);
 }
 setMaterial(script.materials[0]); //set material based on index of Materials list
+
+
+
+
+
+//Play AnimationMixer
+var animationWeight = 1;
+var animationStartOffset = 0;
+var numberOfLoops = 1;  // -1 would be infinite loops
+myAnimationMixer.setWeight("animationLayerName", animationWeight);
+myAnimationMixer.start("animationLayerName", animationStartOffset, numberOfLoops);
+
 
 
 
@@ -224,6 +254,8 @@ fromEulerAngles(Number_x, Number_y, Number_z);
 var rotationQuat = rotationEuler.toEulerAngles();
 
 
+
+
 //Convert hexValues to RGBA
 function hexToRgbA(hex) {
     var c;
@@ -242,10 +274,60 @@ hexToRgbA('#fbafff')
 
 
 
-//Calculate percentage base outcome:
+
+//Calculate percentage % base outcome:
 const a = Math.floor(Math.random() * 11);
-if (a >= 8) { 
+if (a >= 8) {
     // 20% chance to land here
-} else { 
+} else {
     // 80% chance to land here
+}
+
+
+
+
+//Swipe direction:
+var touchStartPos;
+
+var event = script.createEvent("TouchStartEvent");
+event.bind(function(eventData){
+ touchStartPos = eventData.getTouchPosition();
+});
+
+var event = script.createEvent("TouchEndEvent"); 
+event.bind(function(eventData){
+ if (touchStartPos) {
+   var currentPos = eventData.getTouchPosition();
+   var posChange = new vec2(currentPos.x - touchStartPos.x, currentPos.y - touchStartPos.y);
+ 
+   if (posChange.y > 0) {
+     print("Swiped Down");
+   } else {
+     print("Swiped Up");
+   }
+
+   if (posChange.x > 0) {
+     print("Swiped Right");
+   } else {
+     print("Swiped Left");
+   }
+ }
+});
+
+
+
+
+//// Instantiate a prefab:
+//@input SceneObject myPrefab
+var mySceneObject = createObjectFromPrefab();
+//now you can use mySceneObject as a reference to the newly instantiated object (to change its position or parent etc)
+
+function createObjectFromPrefab(){
+    if(script.myPrefab){
+        var instanceObject = script.myPrefab.instantiate(script.getSceneObject());
+        return instanceObject;
+    }
+    else{
+        return undefined;
+    }
 }
