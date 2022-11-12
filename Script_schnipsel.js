@@ -1,5 +1,23 @@
 //My code snippet library for Lens Studio
 
+//Custom Script UI for the inspector:
+{
+https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/custom-script-ui#general-ui-controls
+
+//seperator:
+// @ui {"widget":"separator"}
+
+//Label:
+//@ui {"widget":"label", "label":"Color Controls"}
+
+// Empty label, adds empty space
+//@ui {"widget":"label"}
+
+//Group:
+//@ui {"widget":"group_start", "label":"My Group"}
+// inner content...
+//@ui {"widget":"group_end"}
+}
 
 //touch blocking disables all snapchat native touch/tap interactions like doube tap to switch camera, swipe to get to other Tab in the app itself
 global.touchSystem.touchBlocking = true;
@@ -15,13 +33,13 @@ global.behaviorSystem.addCustomTriggerResponse("my_custom_Trigger", my_function)
 global.behaviorSystem.sendCustomTrigger("my_custom_trigger");
 
 //this makes the function global and visible for other components (behaviour scripts)to call it
-script.api.nameOfMyFunction = function(){   }
+script.api.nameOfMyFunction = function () { }
 
 
 //call any global function
 global.myGlobalFunction();
 //Any global function in different script:
-global.myGlobalFunction = function(){   
+global.myGlobalFunction = function () {
     print("im here");
 }
 
@@ -30,8 +48,7 @@ global.myGlobalFunction = function(){
 
 //Update function
 var Update_event = script.createEvent("UpdateEvent");
-Update_event.bind(function (eventData)
-{
+Update_event.bind(function (eventData) {
     //do stuff here, happens EVERY FRAME use carefully
 });
 
@@ -51,8 +68,7 @@ touchEvent.bind(my_function_name_here);
 
 //Delay function
 var delayedEvent = script.createEvent("DelayedCallbackEvent");
-delayedEvent.bind(function(eventData)
-{    
+delayedEvent.bind(function (eventData) {
     //Do stuff here // call other functions etc 
 });
 delayedEvent.reset(2);  //amount of seconds to delay
@@ -61,9 +77,9 @@ delayedEvent.reset(2);  //amount of seconds to delay
 
 
 //ForEach Loop through array
-for(var i = 0; i < script.myArray.length; i++){
+for (var i = 0; i < script.myArray.length; i++) {
     script.myArray[i].enabled = true;
-} 
+}
 
 
 
@@ -78,27 +94,40 @@ script.myArray.push(script.myArray.shift());
 var i = null;
 var shiftAmount = 3;
 
-while (i < shiftAmount){
-        i++;
-        script.myArray.push(script.myArray.shift());
+while (i < shiftAmount) {
+    i++;
+    script.myArray.push(script.myArray.shift());
 }
 
 
 
 // Function to clear the current material and add a new one
-function setMaterial(material){
+function setMaterial(material) {
     script.meshVisual.clearMaterials();
     script.meshVisual.addMaterial(material);
-   }
+}
 setMaterial(script.materials[0]); //set material based on index of Materials list
 
 
 
 
-//gets a Image and plays the animated texture on it
-//@input Component.Image 
-script.Image.mainMaterial.mainPass.baseTex.control.play(-1,0);
 
+//Play AnimationMixer
+var animationWeight = 1;
+var animationStartOffset = 0;
+var numberOfLoops = 1;  // -1 would be infinite loops
+myAnimationMixer.setWeight("animationLayerName", animationWeight);
+myAnimationMixer.start("animationLayerName", animationStartOffset, numberOfLoops);
+
+
+
+
+
+//Animated texture controlls
+//@input Component.Image 
+script.Image.mainMaterial.mainPass.baseTex.control.play(-1, 0);
+script.Image.mainMaterial.mainPass.baseTex.control.stop();
+var animationDuration = script.Image.mainMaterial.mainPass.baseTex.control.duration;
 
 
 
@@ -115,7 +144,7 @@ script.myImage.mainPass.baseTex = script.myTexture;
 
 
 //Checks camera type
-if (global.scene.getCameraType() == "back" ){}// oder "front"
+if (global.scene.getCameraType() == "back") { }// oder "front"
 
 
 
@@ -127,16 +156,15 @@ if (global.scene.getCameraType() == "back" ){}// oder "front"
 //create new audio component and set the track
 myAudioComponent = script.getSceneObject().createComponent("Component.AudioComponent");
 myAudioComponent.audioTrack = script.tapAnimAudio;
-    
+
 myAudioComponent.play(1);   //play once
 myAudioComponent.play(-1);  //play in a loop
 //If it is already playing, stop
-if(myAudioComponent.isPlaying()){
+if (myAudioComponent.isPlaying()) {
     myAudioComponent.stop(true);
 }
 // Set a callback for when the sound stops playing
-myAudioComponent.setOnFinish(function()
-{
+myAudioComponent.setOnFinish(function () {
     print("sound finished playing");
 });
 
@@ -168,7 +196,7 @@ var randomX = Math.random() * (rangeX - (-rangeX)) + (- rangeX);
 //@input Asset.Material Particle_material
 script.Particle_material.mainPass.colorStart = script.myParticleColor_Start;
 script.Particle_material.mainPass.colorEnd = script.myParticleColor_End;
-script.Particle_material.mainPass.spawnMaxParticles = 200; 
+script.Particle_material.mainPass.spawnMaxParticles = 200;
 //hover over property in the material to get the Property name you need
 
 
@@ -186,8 +214,7 @@ script.hintComponent.showHint(script.hintId, -1);
 
 //Hint that repeats
 var repeatHint = script.createEvent("DelayedCallbackEvent");
-repeatHint.bind(function(eventData)
-{   script.hintComponent.showHint(script.hintId, 1); });
+repeatHint.bind(function (eventData) { script.hintComponent.showHint(script.hintId, 1); });
 repeatHint.reset(4);
 
 
@@ -195,7 +222,7 @@ repeatHint.reset(4);
 
 //function to change SceneObject of a behaviour script, place inside the bahviour script at the bottom
 //@input SceneObject myNewSceneObject
-function changeSceneObject(){
+function changeSceneObject() {
     script.api.sceneObject = script.myNewSceneObject;
     print("new SceneObject is: " + script.api.sceneObject.name);
     startTween();
@@ -205,7 +232,7 @@ function changeSceneObject(){
 
 
 //Calculate distance between two Vector3
-function CalcDistance(Vec1, Vec2){
+function CalcDistance(Vec1, Vec2) {
     distX = Vec2.x - Vec1.x;
     distY = Vec2.y - Vec1.y;
     distZ = Vec2.z - Vec1.z;
@@ -221,24 +248,86 @@ var distance = CalcDistance(Point1, Point2);
 var rotationEuler = quat.fromEulerVec(myVec3);
 
 //Create Euler from Values :
-fromEulerAngles(Number_x, Number_y, Number_z );
+fromEulerAngles(Number_x, Number_y, Number_z);
 
 //Convert EULER to Quaternion(vec3):
 var rotationQuat = rotationEuler.toEulerAngles();
 
 
+
+
 //Convert hexValues to RGBA
-function hexToRgbA(hex){
+function hexToRgbA(hex) {
     var c;
-    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-        c= hex.substring(1).split('');
-        if(c.length== 3){
-            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        c = hex.substring(1).split('');
+        if (c.length == 3) {
+            c = [c[0], c[0], c[1], c[1], c[2], c[2]];
         }
-        c= '0x'+c.join('');
+        c = '0x' + c.join('');
         //return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';  //better to vec4:
-        return new vec4((c>>16)&255, (c>>8)&255, c&255,1);      //1 = alpha value, might need to be assigned seperately (?)
+        return new vec4((c >> 16) & 255, (c >> 8) & 255, c & 255, 1);      //1 = alpha value, might need to be assigned seperately (?)
     }
     throw new Error('Bad Hex');
 }
 hexToRgbA('#fbafff')
+
+
+
+
+//Calculate percentage % base outcome:
+const a = Math.floor(Math.random() * 11);
+if (a >= 8) {
+    // 20% chance to land here
+} else {
+    // 80% chance to land here
+}
+
+
+
+
+//Swipe direction:
+var touchStartPos;
+
+var event = script.createEvent("TouchStartEvent");
+event.bind(function(eventData){
+ touchStartPos = eventData.getTouchPosition();
+});
+
+var event = script.createEvent("TouchEndEvent"); 
+event.bind(function(eventData){
+ if (touchStartPos) {
+   var currentPos = eventData.getTouchPosition();
+   var posChange = new vec2(currentPos.x - touchStartPos.x, currentPos.y - touchStartPos.y);
+ 
+   if (posChange.y > 0) {
+     print("Swiped Down");
+   } else {
+     print("Swiped Up");
+   }
+
+   if (posChange.x > 0) {
+     print("Swiped Right");
+   } else {
+     print("Swiped Left");
+   }
+ }
+});
+
+
+
+
+//// Instantiate a prefab:
+//@input SceneObject myPrefab
+var mySceneObject = createObjectFromPrefab();
+//now you can use mySceneObject as a reference to the newly instantiated object (to change its position or parent etc)
+
+function createObjectFromPrefab(){
+    if(script.myPrefab){
+        var instanceObject = script.myPrefab.instantiate(script.getSceneObject());
+        return instanceObject;
+    }
+    else{
+        return undefined;
+    }
+}
