@@ -1,4 +1,4 @@
-# LensStudioSnippets
+# JavaScript collection for Lens studio
 
 Script_schnipsel.js : Little code snippets for Lens Studio, with examples how to use them
 
