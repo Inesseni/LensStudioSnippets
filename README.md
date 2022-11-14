@@ -1,6 +1,6 @@
 # JavaScript collection for Lens studio
 
-Script_schnipsel.js : Little code snippets for Lens Studio, with examples how to use them
+[Script_schnipsel.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/Script_schnipsel.js) : Little code snippets for Lens Studio, with examples how to use them
 
 
 ## Mini scripts:
