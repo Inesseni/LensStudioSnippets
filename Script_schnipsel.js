@@ -244,15 +244,14 @@ var distance = CalcDistance(Point1, Point2);
 
 
 
-//Convert Quaternion(vec3) to EULER (to use in a setRotation())
+//Convert QUAT(vec4) to EULER(vec3) (to use in a setRotation())
 var rotationEuler = quat.fromEulerVec(myVec3);
 
 //Create Euler from Values :
 fromEulerAngles(Number_x, Number_y, Number_z);
 
-//Convert EULER to Quaternion(vec3):
+//Convert QUAT to EULER(vec3):
 var rotationQuat = rotationEuler.toEulerAngles();
-
 
 
 
