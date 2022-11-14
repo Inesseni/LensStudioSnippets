@@ -1,6 +1,6 @@
 # LensStudioSnippets
 
-Little code snippets for Lens Studio
+Script_schnipsel.js : Little code snippets for Lens Studio, with examples how to use them
 
 
 ## Mini scripts:
