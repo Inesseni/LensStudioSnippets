@@ -32,8 +32,8 @@ global.playSoundFromLibrary("my Audio Name")
 
 
 var myDefaultAudiocComp = script.getSceneObject().createComponent("Component.AudioComponent");
-
-
+var mySingleAudioComp = script.getSceneObject().createComponent("Component.AudioComponent");
+var allLoopingAudioComp = [];
 
 
 /// PLAY AUDIO TRACK FROM THE LIBRARY
@@ -63,28 +63,45 @@ global.playSoundFromLibrary = function(trackName){
 }
 
 
-
-
-
 //// PLAY AUDIO FROM OTHER SCRIPTS
 global.playSingleAudio = function(audioTrack){
     if(audioTrack){
-        myDefaultAudiocComp.audioTrack = audioTrack;
-        myDefaultAudiocComp.play(1);
+
+        mySingleAudioComp.audioTrack = audioTrack;
+        mySingleAudioComp.play(1);
+
     }else{
         print("No Audio track passed into the function")
     }
 }
 
-global.playLoopingAudio = function(audioTrack){
+global.playLoopingAudio = function(audioTrack, volume){
+    
     if(audioTrack){
-        myDefaultAudiocComp.audioTrack = audioTrack;
-        myDefaultAudiocComp.play(-1);
+        //instanciate a new Audio Player for every new Looping sound
+        var instancedAudioComp = script.getSceneObject().createComponent("Component.AudioComponent");
+    
+        //add it to an array of audio components, to keep track of them
+        allLoopingAudioComp.push(instancedAudioComp);
+        print("There are currently " + allLoopingAudioComp.length + " AudioTracks playing on loop")
+        
+        
+        //set specified AudioTrack
+        instancedAudioComp.audioTrack = audioTrack;
+        
+        //Check if specified Volume, if not default to 1
+        if(volume){
+           instancedAudioComp.volume = volume;
+        }else{
+            print("No volume passed into the function for "+  audioTrack.name);
+        }
+
+        // finally,play the audio
+        instancedAudioComp.play(-1);
     }else{
         print("No Audio track passed into the function")
     }
 }
-
 
 
 
