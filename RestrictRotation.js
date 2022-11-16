@@ -17,7 +17,7 @@ Check out a collection of script snippets here -> https://github.com/Inesseni/Le
 
 //DEFINE THE TARGET OBJECT
 var myTarget = null;
-if(script.specifyTarget){
+if(script.specifyTarget && script.newTarget){
     myTarget = script.newTarget;
 }else{
     myTarget = script.getSceneObject();
