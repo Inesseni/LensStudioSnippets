@@ -234,6 +234,16 @@ function changeSceneObject() {
 }
 
 
+//set a new start and / or end value for a tween script
+//@input SceneObject myObjectWithTweenScript
+var newStartValue = new vec3(0,0,0);
+var newEndValue = new vec3(1,2,3);
+global.tweenManager.setStartValue( script.myObjectWithTweenScript, "myTweenName", newStartValue)
+global.tweenManager.setEndValue( script.myObjectWithTweenScript, "myTweenName", newEndValue);
+//start the tween
+global.tweenManager.startTween( script.myObjectWithTweenScript, "myTweenName");
+
+
 
 
 //Calculate distance between two Vector3
