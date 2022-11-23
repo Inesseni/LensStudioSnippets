@@ -15,6 +15,7 @@ global.showHint("lens_hint_blow_a_kiss", 1);
 Hide the current Hint with:
 global.hideHint();
 
+More here: https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interactivity/additional-examples/scripting-hints#adding-the-hints-package
 
 All hint IDS:
 lens_hint_aim_camera_at_the_sky
