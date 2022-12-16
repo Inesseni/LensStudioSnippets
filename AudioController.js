@@ -1,6 +1,6 @@
 // -----JS CODE-----
 /*
-Mini Script #2 by Ines Hilz
+Mini Script by Ines Hilz
 More scripts and code snippets here -> https://github.com/Inesseni/LensStudioSnippets
 
 //////////////////////////////////////////////////
