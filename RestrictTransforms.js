@@ -1,5 +1,5 @@
 /*
-Mini Script #6 by Ines Hilz
+Mini Script by Ines Hilz
 Check out a collection of script snippets here -> https://github.com/Inesseni/LensStudioSnippets
 */
 ///////
