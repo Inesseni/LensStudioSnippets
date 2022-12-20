@@ -259,6 +259,9 @@ function CalcDistance(Vec1, Vec2) {
     return distance;
 }
 var distance = CalcDistance(Point1, Point2);
+    
+// Or EASIER:
+var distance = pointA.distance(pointB);
 
 
 
