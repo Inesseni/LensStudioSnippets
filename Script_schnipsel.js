@@ -205,6 +205,10 @@ script.Particle_material.mainPass.spawnMaxParticles = 200;
 //hover over property in the material to get the Property name you need
 
 
+// set a parameter in a VFX Asset
+//@input Asset.VFXAsset myVfxAsset
+script.myVfxAsset.properties["yourParamName"] = 1234;
+
 
 
 
