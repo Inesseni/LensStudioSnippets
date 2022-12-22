@@ -352,4 +352,20 @@ function createObjectFromPrefab(){
     else{
         return undefined;
     }
+    
+    
+    
+    
+// rotate an object towards a second object 
+//@input SceneObject lookingObject
+//@input SceneObject lookingTarget
+function myLookAt() {
+    var objectPosition = script.lookingObject.getTransform().getWorldPosition();    
+    var lookAtPosition = script.lookingTarget.getTransform().getWorldPosition(); 
+    lookAtPosition.y = objectPosition.y;
+    
+    var lookAtDirection = lookAtPosition.sub(objectPosition).normalize();
+    var rotation = quat.lookAt(lookAtDirection, new vec3(0.0 , 1.0, 0.0));
+    
+    script.lookingObject.getTransform().setWorldRotation(rotation);
 }
