@@ -18,7 +18,7 @@ https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interac
 // inner content...
 //@ui {"widget":"group_end"}
     
-//@input int Options {"widget":"combobox", "values":[{"label":"Option 1", "value":"1"}, {"label":"Option 2", "value":"2"}]}
+//@input int Options = 1 {"widget":"combobox", "values":[{"label":"Option 1", "value":"1"}, {"label":"Option 2", "value":"2"}]}
 //@input string OptionOnes {"showIf":"Options", "showIfValue":"1"}
 //@input string OptionTwo {"showIf":"Options", "showIfValue":"2"}
 }
