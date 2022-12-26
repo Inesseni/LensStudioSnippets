@@ -13,15 +13,28 @@ Set bool to true, if you want to replace the last text and type a brand new text
 ///////
 */
 
-//@input Component.Text targetText
+//@input int TextType = 1 {"widget":"combobox", "values":[{"label":"Text", "value":"1"}, {"label":"3D Text", "value":"2"}]}
+
+//@input Component.Text Text { "showIf":"TextType", "showIfValue":"1"}
+//@input Component.Text3D Text3D { "showIf":"TextType", "showIfValue":"2"}
 //@input float delayBetweenChars  = 0.2
+
+// check what type of text we want and set the correct reference for the variable
+var targetText = null;
+if(script.TextType == 1 && script.Text){
+    targetText =  script.Text;
+}else if(script.TextType == 2 && script.Text3D){
+    targetText =  script.Text3D;
+}
+
+
 var i  = 0;
 var currentlyTyping = false;
 
 global.typeText = function(myText, replaceText){
     
     //check if target text is set
-    if(!script.targetText) return print("No target text for typewriter set");
+    if(!targetText) return print("No target text for typewriter set");
     //check if another text is currently typed..
     if(currentlyTyping)return print("Another text is being typed already, '" + myText + "' not typed");
     
@@ -30,14 +43,14 @@ global.typeText = function(myText, replaceText){
 
     // if replaceText specifically set to true, it "deletes"" the text by setting it to an emopty string
     if(replaceText == true){
-        script.targetText.text = "";
+        targetText.text = "";
     }
     
     //Coroutine that get's called every "delayBetweenChars" seconds
     var delayedEvent = script.createEvent("DelayedCallbackEvent");
     delayedEvent.bind(function (eventData) {
         
-        script.targetText.text =  script.targetText.text.concat(myText.charAt(i));
+       targetText.text = targetText.text.concat(myText.charAt(i));
         //if the text is not spelled completely...
         if(i < myText.length){
             
