@@ -17,6 +17,10 @@ https://docs.snap.com/lens-studio/references/guides/lens-features/adding-interac
 //@ui {"widget":"group_start", "label":"My Group"}
 // inner content...
 //@ui {"widget":"group_end"}
+    
+//@input int Options {"widget":"combobox", "values":[{"label":"Option 1", "value":"1"}, {"label":"Option 2", "value":"2"}]}
+//@input string OptionOnes {"showIf":"Options", "showIfValue":"1"}
+//@input string OptionTwo {"showIf":"Options", "showIfValue":"2"}
 }
 
 //touch blocking disables all snapchat native touch/tap interactions like doube tap to switch camera, swipe to get to other Tab in the app itself
