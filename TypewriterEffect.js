@@ -69,4 +69,4 @@ global.typeText = function(myText, replaceText){
     
 }
 
-global.typeText(" example text");
+global.typeText("This example text will get typed", true);
