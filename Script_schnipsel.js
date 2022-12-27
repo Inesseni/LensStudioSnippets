@@ -126,7 +126,11 @@ var animationStartOffset = 0;
 var numberOfLoops = 1;  // -1 would be infinite loops
 myAnimationMixer.setWeight("animationLayerName", animationWeight);
 myAnimationMixer.start("animationLayerName", animationStartOffset, numberOfLoops);
-
+//or:
+myAnimationMixer.startWithCallback("animationLayerName", animationStartOffset, numberOfLoops, CallAfter);
+function CallAfter(){
+print("This function will get called after the animation finished playing");
+}
 
 
 
