@@ -61,6 +61,8 @@ global.typeText = function(myText, replaceText){
         }else{
             //if the text is completed, set this bool to false and don't call the coroutine again
            currentlyTyping = false;
+            //and reset the index
+            i = 0;
         }
     });
   
