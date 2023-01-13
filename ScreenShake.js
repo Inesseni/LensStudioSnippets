@@ -1,3 +1,4 @@
+
 /*
 Mini Script by Ines Hilz
 Check out a collection of script snippets here -> https://github.com/Inesseni/LensStudioSnippets
@@ -27,40 +28,45 @@ damping         = how fast the screenshake normalizes back to 0
 // @input float speed = 50
 // @input float damping = 0.05
 
+
+
 var shakeIt = false;
 var shakeSpeed = null;
 var shakeOffset = null;
-var newDuration = null;
+var shakeDamping = null;
 var currentPos = script.ImageToShake.getTransform().getLocalPosition();
 
-script.yPos = currentPos.y;
-script.ZPos = currentPos.z;
+script.yPos = currentPos.y
+script.ZPos = currentPos.z
+
 
 var Update_event = script.createEvent("UpdateEvent");
 Update_event.bind(function (eventData) {
-  //if shakeAmount is <= 0, return out of update
-  if (shakeOffset <= 0) return;
-
-  //change the x value smoothly over time
-  var newX = Math.sin(getTime() * shakeSpeed) * shakeOffset;
-  var newY = script.yPos;
-  var newZ = script.ZPos;
-
-  //sets the Image position every frame
-  script.ImageToShake.position = new vec3(newX, newY, 0);
-
-  //reduce the shakeOffset every frame slightly based on damping factor
-  shakeOffset = shakeOffset - shakeDuration;
+    
+    //if shakeAmount is <= 0, return out of update
+    if(shakeOffset <= 0 )return;
+    
+        //change the x value smoothly over time
+        var newX = Math.sin(getTime() * shakeSpeed) * shakeOffset;
+        var newY = script.yPos;
+        var newZ = script.ZPos;
+    
+        //sets the Image position every frame
+        script.ImageToShake.position = new vec3(newX, newY, 0);
+    
+        //reduce the shakeOffset every frame slightly based on damping factor
+        shakeOffset = shakeOffset - shakeDamping;
 });
 
-global.shakeScreen = function (newSpeed, newAmount, newDuration) {
-  //check if any of these values got passed into the funtion manually, if not, use the ones set in the inspector
-  if (!newSpeed) newSpeed = script.speed;
-  if (!newAmount) newAmount = script.Y_Offset;
-  if (!newDuration) newDuration = script.damping / 1000;
-
-  // set new values
-  shakeSpeed = newSpeed;
-  shakeOffset = newAmount;
-  shakeDuration = newDuration;
-};
+global.shakeScreen = function(newSpeed, newAmount, newDamping){
+    
+    //check if any of these values got passed into the funtion manually, if not, use the ones set in the inspector
+    if(!newSpeed) newSpeed = script.speed;
+    if(!newAmount) newAmount = script.Y_Offset;
+    if(!newDamping) newDamping = script.damping / 1000;
+    
+    // set new values
+    shakeSpeed = newSpeed;
+    shakeOffset = newAmount;
+    shakeDamping = newDamping;
+}
