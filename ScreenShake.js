@@ -26,7 +26,7 @@ damping         = how fast the screenshake normalizes back to 0
 // @input  Component.ScreenTransform ImageToShake
 // @input float Y_Offset = 0.2
 // @input float speed = 50
-// @input float damping = 0.05
+// @input float damping = 5
 
 
 
