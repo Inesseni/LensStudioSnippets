@@ -82,34 +82,6 @@ delayedEvent.bind(function (eventData) {
 });
 delayedEvent.reset(2);  //amount of seconds to delay
 
-// or if you wanna be fancy use
-// advanced DELAY MASTER ( handles all delays in one place, i usually paste it at the top of my master script to avoid having a whole new delay function for every delay)
-var delayEventName = null;
-function DelayMaster(EventName, delayTime){
-    if(!EventName) return print("EventName not declared!");
-    if(!delayTime) return print("delayTime not declared!");
-    delayEventName = EventName;
-    delayMaster.reset(delayTime);
-}
-var delayMaster = script.createEvent("DelayedCallbackEvent");
-delayMaster.bind(function (eventData) {
-    switch(delayEventName){
-        case "event 1":
-            print("delayed event 1")
-        break;
-        case "event 2":
-            print("delayed event 2")
-        break;
-        case "event 3":
-            print("delayed event 3")
-        break;
-        /// .... 
-    }
-});
-//Use it like this:
-DelayMaster("event 1", 2);
-DelayMaster("event 2", 5);
-//...
 
 
     
