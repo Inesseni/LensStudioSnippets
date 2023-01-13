@@ -10,6 +10,7 @@
 - [QuickTouchSetup.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/QuickTouchSetup.js) : Super (small) quick setup to make meshes tap-able.
 - [RestrictRotation.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/RestrictRotation.js) : Drag on scene object to restrict its' rotation on selected axes to 0.
 - [RestrictTransforms.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/RestrictTransforms.js) : Expanded RestrictRotation.js script. Set Transform values to 0 every frame or copy values from other objects to mirror their movement.
+- [ScreenShake.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/ScreenShake.js) : Easy screen shake for epic explosions etc.
 - [SmoothFollow.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/SmoothFollow.js) : Drag on scene object and it follows a defined target smoothly.
 - [TapToggle.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/TapToggle.js) : Toggle stuff on and off with the tap.
 - [TypewriterEffect.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/TypewriterEffect.js) : Animate your text with a typewriter effect!
