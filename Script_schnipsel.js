@@ -377,3 +377,24 @@ function myLookAt() {
     
     script.lookingObject.getTransform().setWorldRotation(rotation);
 }
+    
+    
+    
+    
+// Track if the user blinks / blink event:
+//@input Asset.RenderMesh myFaceMesh
+var blinked = false;
+
+var Update_event = script.createEvent("UpdateEvent");
+Update_event.bind(function (eventData) {
+    var blinkWeight = script.myFaceMesh.control.getExpressionWeightByName("EyeBlinkRight");
+        if(blinkWeight >= 0.6 && blinked == false){
+          blinked = true;
+          print("blinked!");
+          //Put your function you want to call in here!
+        }  
+    
+        if(blinkWeight <= 0.6){
+            blinked = false;
+        }
+});
