@@ -362,7 +362,11 @@ function createObjectFromPrefab(){
     else{
         return undefined;
     }
-    
+}
+//copy a material and set it as the new material of instance
+//@input Asset.Material myCopyMaterial
+var imageMaterial = script.myCopyMaterial.clone();
+instanceObject.getComponent("Component.Image").mainMaterial = imageMaterial;
     
     
     
