@@ -138,24 +138,25 @@ print("This function will get called after the animation finished playing");
 
 
 
-// Animated texture controlls
+//Sets a new texture
+//@input Asset.Texture myTexture
+script.myImage.mainPass.baseTex = script.myTexture;
+
+// Texture controls
 //@input Component.Image 
 script.Image.mainMaterial.mainPass.baseTex.control.play(-1, 0);
 script.Image.mainMaterial.mainPass.baseTex.control.stop();
 var animationDuration = script.Image.mainMaterial.mainPass.baseTex.control.duration;
 
+/// Get Texture sizes
+//@input Asset.Texture myTexture
+var textureWidth = myTexture.control.getWidth();
+var textureHeight = myTexture.control.getHeight();
+
 
 
 //Get a component of a scene Object (here an Image)
 script.objectWithImage.getComponent("Component.Image");
-
-
-
-
-//Sets a new texture
-//@input Asset.Texture myTexture
-script.myImage.mainPass.baseTex = script.myTexture;
-
 
 
 
@@ -406,13 +407,6 @@ Update_event.bind(function (eventData) {
             blinked = false;
         }
 });
-
-
-
-/// Get Texture sizes:
-//@input Asset.Texture myTexture
-var textureWidth = myTexture.control.getWidth();
-var textureHeight = myTexture.control.getHeight();
 
 
 
