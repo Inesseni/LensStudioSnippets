@@ -1,4 +1,6 @@
-//My code snippet library for Lens Studio
+///////// My code snippet library for Lens Studio
+///////// PROTIP : Ctrl + f // search this page for anything to find the right snippet
+---------------------------------------------------------------------------------------------------------------------------
 
 //Custom Script UI for the inspector:
 {
