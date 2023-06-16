@@ -404,3 +404,15 @@ Update_event.bind(function (eventData) {
             blinked = false;
         }
 });
+
+
+
+/// Get Texture sizes:
+//@input Asset.Texture myTexture
+var textureWidth = myTexture.control.getWidth();
+var textureHeight = myTexture.control.getHeight();
+
+
+
+// Check if device is spectacles:
+global.isSpecs = global.deviceInfoSystem.isSpectacles();
