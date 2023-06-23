@@ -412,3 +412,15 @@ Update_event.bind(function (eventData) {
 
 // Check if device is spectacles:
 global.isSpecs = global.deviceInfoSystem.isSpectacles();
+
+
+
+// Change background color of a button
+//@input vec4 newButtoncolor {"widget":"color"}
+//@input Component.ScriptComponent buttonScript
+script.buttonScript.api.changeColor(script.newButtoncolor);
+
+// add somewhere in the UIButton.js script:
+script.api.changeColor = function(newCol){
+    backgroundImage.mainPass.baseColor = newCol;
+}
