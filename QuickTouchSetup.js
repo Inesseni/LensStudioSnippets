@@ -1,3 +1,4 @@
+// -----JS CODE-----
 /*
 Mini Script by Ines Hilz
 More scripts and code snippets here -> https://github.com/Inesseni/LensStudioSnippets
@@ -10,11 +11,27 @@ Super mini script to easily make things interactive.
 
 var myObj = script.getSceneObject();
 var myInteractionComp = myObj.createComponent("Component.InteractionComponent");
-if(myObj.getComponent("Component.RenderMeshVisual") == null) return print("Attach a RenderMeshVisual Component to " + myObj.name + " for the QuickTouchSetup");
-myInteractionComp.addMeshVisual(myObj.getComponent("Component.RenderMeshVisual"));
+var myRendMeshVis = null;
+
+if(myObj.getComponent("Component.Image") != null && myObj.getComponent("Component.RenderMeshVisual") != null){
+    print("Please check " + myObj.name + " and make sure there is only one RenderMeshVisual or Image on the SceneObject")
+} 
+
+if(myObj.getComponent("Component.Image") == null) {
+    if(myObj.getComponent("Component.RenderMeshVisual") == null) {
+        //neither a render Mesh nor an Image is on the Scene Object, return
+        return print("Attach a RenderMeshVisual or an Image Component to " + myObj.name + " for the QuickTouchSetup");
+    }else{
+        myRendMeshVis = myObj.getComponent("Component.RenderMeshVisual");
+    }
+}else{
+    myRendMeshVis = myObj.getComponent("Component.Image");
+}
+
+
+myInteractionComp.addMeshVisual(myRendMeshVis);
 
 var onTapEvent = myInteractionComp.onTouchStart.add(function(tapEventArgs){
     print(myObj.name + " tapped!")
+    global.checkIfSelectionIsSpecial(myObj);
 });
-
-
