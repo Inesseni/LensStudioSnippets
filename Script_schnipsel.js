@@ -424,3 +424,19 @@ script.buttonScript.api.changeColor(script.newButtoncolor);
 script.api.changeColor = function(newCol){
     backgroundImage.mainPass.baseColor = newCol;
 }
+
+
+
+// Switch case:
+var fruit = 'Papayas';
+switch (fruit) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    print("Mangoes and papayas are $2.79 a pound.");
+    break;
+  default:
+    print("No fruit today");
+}
