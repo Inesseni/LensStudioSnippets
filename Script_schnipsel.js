@@ -431,7 +431,7 @@ script.api.changeColor = function(newCol){
 var fruit = 'Papayas';
 switch (fruit) {
   case 'Oranges':
-    console.log('Oranges are $0.59 a pound.');
+    print('Oranges are $0.59 a pound.');
     break;
   case 'Mangoes':
   case 'Papayas':
