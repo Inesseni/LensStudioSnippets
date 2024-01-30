@@ -260,6 +260,10 @@ global.tweenManager.setEndValue( script.myObjectWithTweenScript, "myTweenName", 
 //start the tween
 global.tweenManager.startTween( script.myObjectWithTweenScript, "myTweenName");
 
+//set new tween time (restart of tween needed possibly):
+//@input Component.ScriptComponent TweenScriptToChange
+script.TweenScriptToChange.api.time = 10;
+
 
 
 
