@@ -198,7 +198,7 @@ var MyScneObject_Child = script.MySceneObj.getChild(0);
 //gets a random number between 1 and 10 - You can change the numbers
 var min = 1;
 var max = 10;
-var randomINT = Math.floor(Math.random() * max) + min;
+var randomINT = Math.floor(Math.random() * (max - min + 1) + min)
 var randomFLOAT = Math.random() * (max - min) + min;
 
 //random float between -3 and 3
