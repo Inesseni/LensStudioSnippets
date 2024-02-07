@@ -205,6 +205,20 @@ var randomFLOAT = Math.random() * (max - min) + min;
 var rangeX = 3;
 var randomX = Math.random() * (rangeX - (-rangeX)) + (- rangeX);
 
+// dice function:
+function dice(min, max) {
+    if(!min && !max){
+        min = 0;
+        max = 1;
+    }
+  var result = Math.floor(Math.random() * (max - min + 1) + min);
+  return result;
+}
+print(dice());  // result will be 0 or 1
+print(dice(0, 5)); //result will be between 0 and 5
+//get a random bool outcome:
+var myBool = !!dice();
+print(myBool);  // 0 = false, 1 = true
 
 
 
