@@ -33,5 +33,4 @@ myInteractionComp.addMeshVisual(myRendMeshVis);
 
 var onTapEvent = myInteractionComp.onTouchStart.add(function(tapEventArgs){
     print(myObj.name + " tapped!")
-    global.checkIfSelectionIsSpecial(myObj);
 });
