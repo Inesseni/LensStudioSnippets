@@ -467,3 +467,18 @@ switch (fruit) {
   default:
     print("No fruit today");
 }
+
+
+
+// Get slider value
+// @input Component.ScriptComponent UIColorPickerScript
+var sliderVal = script.UIColorPickerScript.api.getSliderValue();
+
+// get slider value whenever you move the slider
+// 1. on the UI Slider -> set Callback to custom function
+// 2. set your script as a reference
+// 3. add a value for "On Value Changed" (the name of your function in the script, eG sliderChanged
+script.api.sliderChanged = function(){
+    var sliderVal = script.UIColorPickerScript.api.getSliderValue();
+    print(sliderVal) 
+}
