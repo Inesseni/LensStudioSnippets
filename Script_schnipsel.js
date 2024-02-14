@@ -222,6 +222,15 @@ print(myBool);  // 0 = false, 1 = true
 
 
 
+//ROUND a number to an integer
+var myNumber = 0.834
+var roundedInt = Math.round(myNumber);   // roundedInt = 1
+//round a number to the first decimal
+var roundedDecimal = Math.round(myNumber * 10) / 10       // roundedDecimal = 0.8
+
+
+
+
 //Change the color of the default confetti particle system (or any other property)
 //@input vec3 myParticleColor_Start {"widget":"color"}
 //@input vec3 myParticleColor_End {"widget":"color"}
