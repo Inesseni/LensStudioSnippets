@@ -112,6 +112,18 @@ while (i < shiftAmount) {
     script.myArray.push(script.myArray.shift());
 }
 
+//shuffle an Array in-place using Durstenfeld shuffle algorithm
+var myArray = ["a","b","c","d"]
+function shuffleArray(myArray) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+print(myArray);     // result something like c,d,a,b
+
 
 
 // Function to clear the current material and add a new one
