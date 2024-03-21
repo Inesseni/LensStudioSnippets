@@ -503,3 +503,9 @@ script.api.sliderChanged = function(){
     var sliderVal = script.UIColorPickerScript.api.getSliderValue();
     print(sliderVal) 
 }
+
+
+
+/// change color of the EyeColorVisual
+var newcol = new vec4(1,1,1,script.api.fadeValue)
+script.myEyeColorSceneObject.mainPass.baseColor = newcol;
