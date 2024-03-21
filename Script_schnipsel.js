@@ -447,6 +447,15 @@ Update_event.bind(function (eventData) {
         }
 });
 
+//Set Blendshape based on Face Expression:
+//@input Component.RenderMeshVisual myFaceMesh
+var Update_event = script.createEvent("UpdateEvent");
+Update_event.bind(function (eventData) {
+    var mouthOpenValue = script.myFaceMesh.mesh.control.getExpressionWeightByName("JawOpen");
+    script.myFaceMesh.setBlendShapeWeight('Key 2', mouthOpenValue);
+});
+
+
 
 
 // Check if device is spectacles:
