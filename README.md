@@ -6,6 +6,7 @@
 ## Mini scripts
 - [AudioController.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/AudioController.js) : Handle all your sound effects and audio tracks in one place!
 - [ChangeCamController.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/ChangeCamController.js) : Enables / disables content based on the active camera. Usefull to hide UI, objects or overlay effects.
+- [FaceZoom.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/FaceZoom.js) : Keeps the face centered while zoomed in.
 - [HintController.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/HintController.js) : Show and hide snapchat native hints from anywhere.
 - [QuickTouchSetup.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/QuickTouchSetup.js) : Super (small) quick setup to make meshes tap-able.
 - [RestrictRotation.js](https://github.com/Inesseni/LensStudioSnippets/blob/main/RestrictRotation.js) : Drag on scene object to restrict its' rotation on selected axes to 0.
