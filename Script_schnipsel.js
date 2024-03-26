@@ -509,3 +509,12 @@ script.api.sliderChanged = function(){
 /// change color of the EyeColorVisual
 var newcol = new vec4(1,1,1,script.api.fadeValue)
 script.myEyeColorSceneObject.mainPass.baseColor = newcol;
+
+
+
+// get a still frame / freeze frame from Camera Render target, basically taking a photo
+//@input Asset.Texture deviceCameraTexture
+//@input Component.Image setToImage
+var textureCopy = script.deviceCameraTexture.copyFrame();
+script.setToImage.mainPass.baseTex = textureCopy;
+
