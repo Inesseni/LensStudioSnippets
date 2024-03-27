@@ -299,6 +299,13 @@ global.tweenManager.startTween( script.myObjectWithTweenScript, "myTweenName");
 //@input Component.ScriptComponent TweenScriptToChange
 script.TweenScriptToChange.api.time = 10;
 
+//start tween with callbakcs (functions that get called on complete, start and stop, 
+global.tweenManager.startTween( script.myObjectWithTweenScript, "myTweenName_with_callbacks", moveComplete, moveStart, moveStop );
+function moveComplete() 
+{
+    // Callback example
+}
+
 
 
 
