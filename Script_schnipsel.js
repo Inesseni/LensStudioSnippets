@@ -284,6 +284,19 @@ function changeSceneObject() {
     print("new SceneObject is: " + script.api.sceneObject.name);
     startTween();
 }
+//use this to call the function from another script
+script.api.changeSceneObject = function(toThis){
+    script.api.sceneObject = toThis;
+}
+script.myChangedTweenScript.api.changeSceneObject(toThis);
+
+// change the delay of a tween:
+script.api.myDelay = script.delay;
+//now change evry script.delay in the script to script.api.myDelay
+// call this script function to change the delay
+script.api.changeDelay = function(newDelay) {
+  script.api.TweenDelay = newDelay;
+}
 
 
 //set a new start and / or end value for a tween script
