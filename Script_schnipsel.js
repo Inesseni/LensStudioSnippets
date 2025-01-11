@@ -538,3 +538,12 @@ script.myEyeColorSceneObject.mainPass.baseColor = newcol;
 var textureCopy = script.deviceCameraTexture.copyFrame();
 script.setToImage.mainPass.baseTex = textureCopy;
 
+
+// call a function that you can define in the inspector
+//@input Component.ScriptComponent scriptWithFunction
+//@input string scriptFunctionName
+script.scriptWithFunction.api[script.scriptFunctionName]();
+
+//or global:
+global[script.scriptFunctionName]();
+
