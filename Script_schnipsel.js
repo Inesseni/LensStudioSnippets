@@ -547,3 +547,8 @@ script.scriptWithFunction.api[script.scriptFunctionName]();
 //or global:
 global[script.scriptFunctionName]();
 
+
+
+/// play an animation with AnimationPlayer:
+sccript.myAnimPlayerComponent.playClipAt("clip_name",0)
+
