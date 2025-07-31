@@ -552,3 +552,8 @@ global[script.scriptFunctionName]();
 /// play an animation with AnimationPlayer:
 sccript.myAnimPlayerComponent.playClipAt("clip_name",0)
 
+
+//set parent but stay in place
+script.myObject.setParentPreserveWorldTransform(script.newParent);
+
+
